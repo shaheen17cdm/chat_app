@@ -18,8 +18,13 @@ class HomePage extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(title: const Padding(
         padding: EdgeInsets.only(right: 40),
-        child: Center(child: Text('Home')),
+        child: Center(child: Text('Home'),
+        
+        ),
       ),
+      backgroundColor: Colors.transparent,
+      foregroundColor: Colors.grey,
+      elevation: 0,
       ),
       drawer: const MyDrawer(),
       body: _buildUserList(),
@@ -54,7 +59,7 @@ class HomePage extends StatelessWidget {
    if (userData['email'] != _authService.getCurrentUser()!.email) {
      return UserTile(text: userData['email'],
     onTap: (){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(recieverEmail: userData['email'],),
+      Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(recieverEmail: userData['email'], recieverID: userData['uid'],),
       ));
     },
     );
